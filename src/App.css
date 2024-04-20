@@ -1,3 +1,7 @@
 .btn{
-  @apply p-2 rounded border border-solid border-black
+  @apply p-2 rounded border border-solid border-black hover:bg-black hover:text-white
+}
+.btn.active{
+  background-color: black;
+  color: white;
 }
