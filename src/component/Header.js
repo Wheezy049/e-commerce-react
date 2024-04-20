@@ -2,6 +2,9 @@ import React from 'react'
 import { FaShoppingCart } from 'react-icons/fa';
 
 function Header() {
+
+  
+
   return (
     <div className='flex bg-black px-8 py-4 justify-between items-center text-white'>
      <h1 className='text-2xl font-medium uppercase'>Shopping Store</h1>

@@ -9,6 +9,8 @@ function SingleProduct() {
   const [singleProduct, setSingleProduct] = useState({})
   const [loading, setLoading] = useState(false)
 
+   
+
   useEffect(()=>{
    const getSingleProduct = async () =>{
      setLoading(true);
@@ -61,7 +63,7 @@ function SingleProduct() {
     </>
    )
   }
-
+  
   return (
     <div className='container mx-auto px-4'>
       <div className='mt-4'>
