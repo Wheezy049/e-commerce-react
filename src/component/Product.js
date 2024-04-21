@@ -55,7 +55,7 @@ function Product(props) {
         <div className='grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-8 my-10'>
           {filter.map((product) => (
             <div className='bg-white rounded-lg p-4 shadow-md' key={product.id}>
-              <img src={product.image} alt={product.title} className='w-full h-36 object-contain sm:h-48' />
+              <NavLink to={`/product/${product.id}`}><img src={product.image} alt={product.title} className='w-full h-36 object-contain sm:h-48' /></NavLink>
               <p className='text-sm font-medium mt-2'>{product.title.substring(0, 15)}</p>
               <div className='flex justify-between items-center mt-3'>
               <p className='text-sm'>${product.price}</p>
