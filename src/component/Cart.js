@@ -1,25 +1,27 @@
-import React from 'react';
-import { useShopContext } from '../context/ShopContext';
+import React, { useContext } from 'react';
+import { ShopContext } from '../context/ShopContext';
 
-function Cart() {
-  // Access cart items from the context
-  const { cart } = useShopContext();
+function Cart(props) {
+  const { cart, products } = useContext(ShopContext);
 
-  // Convert cart object into an array of [productId, quantity] pairs
-  const cartItems = Object.entries(cart);
+  const cartProducts = products.filter((product) => cart[product.id] > 0);
 
   return (
-    <div>
+    <div className='bg-black text-white absolute w-56 h-72 rounded top-14 right-0  p-8'>
       <h2>Cart Items</h2>
-      <ul>
-        {/* Map through cartItems array and render each item */}
-        {cartItems.map(([productId, quantity]) => (
-          <li key={productId}>
-            Product ID: {productId}, Quantity: {quantity}
+      {cartProducts.length > 0 ? (
+        <ul>
+        {cartProducts.map((product) => (
+          <li key={product.id} className=''>
+            <p>{product.title}</p>
           </li>
         ))}
       </ul>
-    </div>
+      ) : (
+        <p>Cart is Empty</p>
+      )
+      }
+    </div> 
   );
 }
 

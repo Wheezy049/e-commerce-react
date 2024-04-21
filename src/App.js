@@ -18,7 +18,6 @@ function App() {
         <Route path='/jewelery' element={<Hero />} />
         <Route path='/electronics' element={<Hero />} />
         <Route path='/product/:id' element={<SingleProduct />} />
-        <Route path='/cart' element={<Cart />} />
       </Routes>
       </BrowserRouter>
     </div>

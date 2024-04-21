@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { FaStar } from 'react-icons/fa';
 import Skeleton from 'react-loading-skeleton';
 import { useParams } from 'react-router-dom'
+import { ShopContext } from '../context/ShopContext';
 
-function SingleProduct() {
+function SingleProduct(props) {
  
   const {id} = useParams();
   const [singleProduct, setSingleProduct] = useState({})
   const [loading, setLoading] = useState(false)
+  const {addToCart, products} = useContext(ShopContext)
 
-   
+  const handleAddToCart = () => {
+    console.log("Product ID:", id); // Log the productId before adding to cart
+    addToCart(id);
+  };
 
   useEffect(()=>{
    const getSingleProduct = async () =>{
@@ -57,7 +62,7 @@ function SingleProduct() {
          </div>
          <h3 className='text-2xl font-semibold mb-2'>$ {singleProduct.price}</h3>
          <p className='text-base opacity-60 mb-2'>{singleProduct.description}</p>
-         <button className='btn'>Add to cart</button>
+         <button className='btn' onClick={ handleAddToCart}>Add to cart</button>
        </div>
       </div>
     </>
