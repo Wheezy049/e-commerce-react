@@ -51,7 +51,7 @@ function SingleProduct() {
     <>
       <div className='block sm:flex mx-10 gap-40 my-12' key={singleProduct.id}>
        <div className='bg-white rounded-lg p-5 shadow-md'>
-          <img src={singleProduct.image} alt={singleProduct.title} className='min-w-60 h-60 sm:h-80' />
+          <img src={singleProduct.image} alt={singleProduct.title} className='w-48 sm:min-w-60 h-60 sm:h-80' />
        </div>
        <div className='mt-10 sm:mt-0'>
          <h4 className='text-black text-base font-medium uppercase opacity-70 mb-2'>{singleProduct.category}</h4>
