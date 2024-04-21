@@ -12,7 +12,6 @@ function SingleProduct() {
   const { addToCart } = useContext(ShopContext)
 
   const handleAddToCart = () => {
-    console.log("Product ID:", id); // Log the productId before adding to cart
     addToCart(id);
   };
 

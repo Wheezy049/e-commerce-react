@@ -30,8 +30,6 @@ export const ShopContextProvider = (props) => {
   return defaultCart;
 };
 
-  // const [cartItem, setCartItem] = useState(getDefaultCart)
-
     useEffect(() => {
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
@@ -46,7 +44,7 @@ export const ShopContextProvider = (props) => {
   const addToCart = (productId) => {
     setCart((prevCart) => ({
       ...prevCart,
-      [productId]: prevCart[productId] ||   + 1
+      [productId]: prevCart[productId] ||  + 1
     }));
   };
 
