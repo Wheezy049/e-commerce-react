@@ -45,7 +45,7 @@ function Product() {
   const ShowProducts = () => {
     return (
       <>
-        <div className='flex gap-4 justify-center m-auto'>
+        <div className='hidden sm:flex gap-4 justify-center m-auto'>
           <NavLink to='/' className='btn' onClick={() => setFilter(data)}>All Product</NavLink>
           <NavLink to='/mens' className='btn' onClick={()=> filterProduct("men's clothing")}>Men`s Clothing</NavLink>
           <NavLink to='/womens' className='btn' onClick={()=> filterProduct("women's clothing")}>Women`s Clothing</NavLink>
@@ -55,11 +55,11 @@ function Product() {
         <div className='grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-8 my-10'>
           {filter.map((product) => (
             <div className='bg-white rounded-lg p-4 shadow-md' key={product.id}>
-              <img src={product.image} alt={product.title} className='w-full h-48 object-contain' />
+              <img src={product.image} alt={product.title} className='w-full h-36 object-contain sm:h-48' />
               <p className='text-sm font-medium mt-2'>{product.title.substring(0, 15)}</p>
-              <div className='flex justify-between items-center'>
+              <div className='flex justify-between items-center mt-3'>
               <p className='text-sm'>${product.price}</p>
-              <NavLink to={`/product/${product.id}`} className='p-2 mt-2 rounded border border-solid border-black hover:bg-black hover:text-white text-sm font-medium'>Buy Now</NavLink>
+              <NavLink to={`/product/${product.id}`} className='p-1 sm:p-2 rounded border border-solid border-black hover:bg-black hover:text-white text-xs sm:text-sm font-medium'>Buy Now</NavLink>
               </div>
             </div>
           ))}
@@ -71,7 +71,7 @@ function Product() {
   return (
     <div className='container mx-auto px-4'>
       <div className='flex justify-center text-center my-4'>
-        <h1 className='text-3xl font-semibold'>Latest Products</h1>
+        <h1 className='text-2xl sm:text-3xl font-semibold '>Latest Products</h1>
       </div>
       <div className='mt-4'>
         {loading ? <Loading /> : <ShowProducts />}

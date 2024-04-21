@@ -9,7 +9,7 @@ function SingleProduct(props) {
   const {id} = useParams();
   const [singleProduct, setSingleProduct] = useState({})
   const [loading, setLoading] = useState(false)
-  const {addToCart, products} = useContext(ShopContext)
+  const { addToCart } = useContext(ShopContext)
 
   const handleAddToCart = () => {
     console.log("Product ID:", id); // Log the productId before adding to cart
@@ -49,11 +49,11 @@ function SingleProduct(props) {
   const ShowProduct = () =>{
    return(
     <>
-      <div className='flex mx-10 gap-40 my-12' key={singleProduct.id}>
+      <div className='block sm:flex mx-10 gap-40 my-12' key={singleProduct.id}>
        <div className='bg-white rounded-lg p-5 shadow-md'>
-          <img src={singleProduct.image} alt={singleProduct.title} className='min-w-60 h-80' />
+          <img src={singleProduct.image} alt={singleProduct.title} className='min-w-60 h-60 sm:h-80' />
        </div>
-       <div>
+       <div className='mt-10 sm:mt-0'>
          <h4 className='text-black text-base font-medium uppercase opacity-70 mb-2'>{singleProduct.category}</h4>
          <h1 className='text-3xl font-light mb-2'>{singleProduct.title}</h1>
          <div className='flex gap-2 items-center mb-2'>

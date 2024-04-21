@@ -2,9 +2,7 @@ import './App.css';
 import Header from './component/Header';
 import Hero from './component/Hero';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Product from './component/Product';
 import SingleProduct from './component/SingleProduct';
-import Cart from './component/Cart';
 
 function App() {
   return (

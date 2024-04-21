@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export const ShopContext = createContext(null);
 export const ShopContextProvider = (props) => {
@@ -30,19 +30,18 @@ export const ShopContextProvider = (props) => {
   return defaultCart;
 };
 
+  // const [cartItem, setCartItem] = useState(getDefaultCart)
 
-  const [cartItem, setCartItem] = useState(getDefaultCart)
-   
     useEffect(() => {
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
-      setCartItem(JSON.parse(storedCart));
+      setCart(JSON.parse(storedCart));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cartItem));
-  }, [cartItem]);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (productId) => {
     setCart((prevCart) => ({
@@ -52,18 +51,23 @@ export const ShopContextProvider = (props) => {
   };
 
   const increment = (productId) => {
-    setCartItem((prevCart) => ({ ...prevCart, [productId]: prevCart[productId] + 1 }));
+    setCart((prevCart) => ({ ...prevCart, [productId]: prevCart[productId] + 1 }));
   };
 
   const removeFromCart = (productId) => {
-    setCartItem((prevCart) => ({ ...prevCart, [productId]: prevCart[productId] - 1 }));
+    setCart((prevCart) => ({ ...prevCart, [productId]: prevCart[productId] - 1 }));
   };
 
-  const removeAllItems = () => {
-    setCartItem(getDefaultCart());
+  const removeProducts = (productId) => {
+    setCart((prevCart) => {
+      const newCart = { ...prevCart };
+      delete newCart[productId];
+      return newCart;
+    });
   };
 
-  const value = { products, cart, cartItem, addToCart, increment, removeFromCart, removeAllItems};
+
+  const value = { products, cart, addToCart, increment, removeFromCart, removeProducts};
 
   return <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>;
 };
