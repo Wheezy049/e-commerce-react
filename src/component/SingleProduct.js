@@ -4,7 +4,7 @@ import Skeleton from 'react-loading-skeleton';
 import { useParams } from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext';
 
-function SingleProduct(props) {
+function SingleProduct() {
  
   const {id} = useParams();
   const [singleProduct, setSingleProduct] = useState({})

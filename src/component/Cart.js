@@ -65,11 +65,14 @@ function Cart(props) {
             <p>Total</p>
             <p>${total}</p>
           </div>
+          <div className='flex m-5'>
+          <NavLink to='/' onClick={props.toggle} className='bg-white text-black text-sm font-medium rounded w-full p-2 flex justify-center m-auto'>Checkout</NavLink>
+          </div>
       </div>
       ) : (
         <div>
         <p className='text-base font-medium flex justify-center mt-5 mb-3'>Cart is Empty!</p>
-        <NavLink to='/' className='bg-white text-black text-sm font-medium rounded p-2 flex justify-center m-auto'>Back to home</NavLink>
+        <NavLink to='/' onClick={props.toggle} className='bg-white text-black text-sm font-medium rounded p-2 flex justify-center m-auto'>Back to home</NavLink>
         </div>
       )
       }

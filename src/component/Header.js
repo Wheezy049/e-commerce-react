@@ -5,16 +5,21 @@ import { ShopContext } from '../context/ShopContext';
 import { NavLink } from 'react-router-dom';
 
 function Header() {
+
    const { cart } = useContext(ShopContext)
+
    const [isCartOpen, setIsCartOpen] = useState(false);
+
    const toggleCart = () => {
+    // e.preventDefault()
     setIsCartOpen(!isCartOpen);
   };
+
   const totalUniqueItems = Object.keys(cart).filter(productId => cart[productId] > 0).length;
 
   return (
     <div className='flex bg-black px-8 py-4 justify-between items-center text-white'>
-     <NavLink to='/' className='text-base sm:text-2xl font-medium uppercase'>Shopping Store</NavLink>
+     <NavLink to='/' onClick={toggleCart} className='text-base sm:text-2xl font-medium uppercase'>Shopping Store</NavLink>
      <div className='gap-2 hidden sm:flex'>
      <input type='text' className='text-black text-sm' />
      <button className='border border-solid border-white rounded text-sm font-medium p-2 hover:bg-white hover:text-black'>Search</button>

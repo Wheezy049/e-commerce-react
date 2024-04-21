@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import { NavLink } from 'react-router-dom';
 
-function Product() {
+function Product(props) {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -59,7 +59,7 @@ function Product() {
               <p className='text-sm font-medium mt-2'>{product.title.substring(0, 15)}</p>
               <div className='flex justify-between items-center mt-3'>
               <p className='text-sm'>${product.price}</p>
-              <NavLink to={`/product/${product.id}`} className='p-1 sm:p-2 rounded border border-solid border-black hover:bg-black hover:text-white text-xs sm:text-sm font-medium'>Buy Now</NavLink>
+              <NavLink to={`/product/${product.id}`} onClick={props.toggle} className='p-1 sm:p-2 rounded border border-solid border-black hover:bg-black hover:text-white text-xs sm:text-sm font-medium'>Buy Now</NavLink>
               </div>
             </div>
           ))}
